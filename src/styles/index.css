@@ -10,6 +10,14 @@
   --light-theme-elements-background-color:hsl(0, 0%, 100%);
   --light-theme-text:hsl(200, 15%, 8%);
   --light-theme-input: hsl(0, 0%, 52%);/* input text? */
+
+
+  
+  --theme-background-color:hsl(207, 26%, 17%);
+  --elements-background-color:hsl(209, 23%, 22%);
+  --theme-text:hsl(0, 0%, 100%);
+  --theme-input: hsl(0, 0%, 100%);/* input text? */
+
 /* 
   - Dark Blue (Dark Mode Elements): hsl(209, 23%, 22%)
   - Very Dark Blue (Dark Mode Background): hsl(207, 26%, 17%)
@@ -19,8 +27,55 @@
   - White (Dark Mode Text & Light Mode Elements): hsl(0, 0%, 100%)
  */
   font-family: 'Nunito Sans', sans-serif;
+  font-size:14px;
 }
 
 body {
   background-color:darkmagenta;
+    color:var(--theme-text);
+
 }
+.navbar{
+  background-color: var(--elements-background-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 80px;
+}
+.navbar>*{
+  margin: 0 2em
+}
+.navbar__title{
+  color:var(--theme-text);
+  font-weight: 800;
+  font-size: 25px;
+}
+.navbar__btn-switch-theme{
+  font-weight: 600;
+  color:var(--theme-text);
+  font-size:16px;
+
+  cursor: pointer;
+}
+.btn-switch-theme--light-theme:active{
+  --dark-theme-background-color:hsl(0, 0%, 100%);
+}
+.navbar__btn-switch-theme::before{
+  content: url('../img/moon-sharp.svg');
+  display: inline-block;
+  width:6px;
+  height: 6px;
+  position: absolute;
+  transform: translateX(-360%) translateY(25%);
+
+}
+.btn-switch-theme--light-theme::before{
+  content: url('../img/moon-outline.svg');
+}
+
+/*
+ .navbar__btn-switch-theme:active,
+.navbar__btn-switch-theme:hover{
+
+} 
+*/

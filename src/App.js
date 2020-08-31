@@ -5,13 +5,14 @@ import NavBar from './NavBar';
 import Home from './home/Home';
 import CountryDetail from './detail/CountryDetail';
 
+let callbackThemeQ;
 /* The app component will always contain the navbarComponent */
-function App(){
+function App(props){
+    callbackThemeQ = props.callbackTheme;
     return(
-
        
         <div className="app">             
-            <NavBar></NavBar>
+            <NavBar clicSwitchTheme={switchTheme} ></NavBar>
             <div id="currentContentApp">
                 <Home></Home>{/* it'll will be changed to country detail. */}
             </div>
@@ -20,5 +21,8 @@ function App(){
 
     );
 }
-
+const switchTheme = function (){
+    
+    callbackThemeQ();
+}
 export default App;
