@@ -1,5 +1,5 @@
 import React from 'react';
-import "../styles/home.css"
+import "../styles/index.css"
 
 import InputSearch from '../home/InputSearch';
 import RegionChoiceBox from './RegionChoiceBox';
@@ -10,7 +10,7 @@ function Home(){
 
         <div className="home">
             <div className="home__filter-search-container">
-                <InputSearch></InputSearch>
+                <InputSearch ></InputSearch>
                 <RegionChoiceBox></RegionChoiceBox>
             </div>
             <div className="home__countries-cards">

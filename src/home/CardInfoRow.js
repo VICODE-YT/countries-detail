@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/cardinforow.css'
+import '../styles/index.css'
 
 function CardInfoRow(props) {
     const {titleInfo,descriptionInfo} = props;
