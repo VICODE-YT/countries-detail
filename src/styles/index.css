@@ -29,6 +29,7 @@
  */
   font-family: 'Nunito Sans', sans-serif;
   font-size:14px;
+  font-weight: 300;
 }
 
 body {
@@ -235,4 +236,44 @@ body {
 
 .element-floating{
   box-shadow:  0px 0px 16px 0px var(--shadow-elements);
+}
+.country-card{
+  width:265px;
+  height:363px;
+  border-radius: 8px;
+}
+.country-card__flag{
+  width:100%;
+}
+.country-card__container-info{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  
+
+  height:177px;
+}
+.container-info__content{
+  margin-left: 20px;
+  height:102px;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.content__country-name{
+  font-weight:800;
+  font-size: 18px ;
+  color:var(--theme-text);
+}
+
+.card-info__tittle{
+  color:var(--theme-text);
+  font-size: 16px;
+  font-weight:600;
+}
+
+.card-info__description{
+  color:var(--theme-text);
+  font-weight: 300;
 }

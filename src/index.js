@@ -6,8 +6,10 @@ import "./styles/index.css";
 
 import App from './App';
 
+
 const rootElement = document.getElementById('root');
 let theme = "dark";
+
 const callbackThemeF = function () {   
     if(theme === "light"){
         rootElement.style.setProperty('--theme-background-color', "hsl(207, 26%, 17%)");
@@ -28,6 +30,7 @@ const callbackThemeF = function () {
     
 
 }
+ 
 
 ReactDOM.render(
     <App callbackTheme={callbackThemeF}></App>,
