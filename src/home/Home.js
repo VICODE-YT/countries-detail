@@ -28,6 +28,13 @@ class Home extends React.Component{
             */
     }
 
+    getCountry(indexCountry){
+        let country = this.state.dataP[indexCountry];
+        return <CountryCard name={country.name} population={country.population} region={country.region} capital={country.capital} flagURL={country.flag}></CountryCard>
+
+         
+    }
+
     render(){
 
         if(this.state.dataP==null){
@@ -44,8 +51,8 @@ class Home extends React.Component{
 
             );
         }else{
-            let {name,population,region,capital,flag} = this.state.dataP[0];
-
+           
+            let dataForCards = this.state.dataP.slice(0,8);
             return (
                 <div className="home">
                     <div className="home__filter-search-container">
@@ -53,7 +60,17 @@ class Home extends React.Component{
                         <RegionChoiceBox></RegionChoiceBox>
                     </div>
                     <div className="home__countries-cards">
-                        <CountryCard name={name} population={population} region={region} capital={capital} flagURL={flag}></CountryCard>
+                        {dataForCards.map(function(element,index){
+                            return <CountryCard 
+                                name={element.name} population={element.population} 
+                                region={element.region} capital={element.capital} 
+                                flagURL={element.flag}
+                                >
+
+                            </CountryCard>
+ 
+                        })}
+                    
                     </div>
                 </div>
 
