@@ -274,6 +274,7 @@ body {
   height:363px;
   border-radius: 8px;
   overflow:hidden;
+  cursor:pointer;
 }
 .country-card__flag{
   height:160px;

@@ -14,7 +14,7 @@ class CountryCard extends React.Component{
 
         return (
             <div className="country-card element-floating ">
-                <img src={flagURL} alt={"flag"} className="country-card__flag"></img>
+                <img src={flagURL} loading="lazy" alt={"flag"} className="country-card__flag"></img>
                 <div className="country-card__container-info">
                     <div className="container-info__content">
 
