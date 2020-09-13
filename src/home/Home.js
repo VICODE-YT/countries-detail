@@ -11,33 +11,43 @@ class Home extends React.Component{
     constructor(props){
         super(props);
         this.state ={
-            dataP:null
+            dataPreviewReady:false,
+            currentDataCountriesToShow:null,
         }
-        
-        
-
+        this.dataPreview = null;
     }
     async componentDidMount() {
        
-        
-        let data = await new Data().getAllCountries();
-        this.setState({ dataP: data });
-       /*  fetch('https://api.mydomain.com')
-            .then(response => response.json())
-            .then(data => this.setState({ data })); 
-            */
+        let countriesPreview = JSON.parse( localStorage.getItem('countriesPreview') );
+
+        let dataPreviewIsReady = true;/* if fails, then the value change */
+        if(!countriesPreview){
+            countriesPreview = await new Data().getAllCountries();
+            /* Check if the fetch isnt empty */
+            try {
+                /* if fails, then there's no countries in the fetch*/
+                let tryGetElement = countriesPreview[0];
+                localStorage.setItem("countriesPreview", JSON.stringify(countriesPreview));
+                this.dataPreview = countriesPreview;
+                dataPreviewIsReady = true;
+
+            } catch (error) {
+                localStorage.setItem("countriesPreview", null);
+                this.dataPreview = null; /* Explicit assignation */
+                dataPreviewIsReady = false;
+            }
+        }
+        this.setState({
+            dataPreviewReady: dataPreviewIsReady,
+            currentDataCountriesToShow: countriesPreview.slice(0, 8),
+        });//data ready
+
     }
 
-    getCountry(indexCountry){
-        let country = this.state.dataP[indexCountry];
-        return <CountryCard name={country.name} population={country.population} region={country.region} capital={country.capital} flagURL={country.flag}></CountryCard>
-
-         
-    }
 
     render(){
 
-        if(this.state.dataP==null){
+        if (this.state.dataPreviewReady===false){
             return(
                 <div className="home">
                     <div className="home__filter-search-container">
@@ -51,8 +61,10 @@ class Home extends React.Component{
 
             );
         }else{
-           
-            let dataForCards = this.state.dataP.slice(0,8);
+            /* When dataPreviewReady true, always will get into here, so 
+            if wanna show other cards, it's only needed to modify currentDataCountriesToShow state property
+            */
+            let dataForCards = this.state.currentDataCountriesToShow;
             return (
                 <div className="home">
                     <div className="home__filter-search-container">
@@ -62,13 +74,13 @@ class Home extends React.Component{
                     <div className="home__countries-cards">
                         {dataForCards.map(function(element,index){
                             return <CountryCard 
+                                key={element.name}
                                 name={element.name} population={element.population} 
                                 region={element.region} capital={element.capital} 
                                 flagURL={element.flag}
                                 >
 
                             </CountryCard>
- 
                         })}
                     
                     </div>

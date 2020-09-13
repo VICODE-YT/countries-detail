@@ -329,7 +329,7 @@ body {
     display:flex;
     flex-direction: column;
     justify-content:space-between;
-    align-items: start;
+    align-items: flex-start;
     width:265px;
     margin:1em;
     margin-bottom: 0;
