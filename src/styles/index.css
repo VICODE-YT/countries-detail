@@ -316,40 +316,6 @@ body {
   font-weight: 300;
 }
 
-@media screen and (max-width:411px){
-  .main-container{    
-    min-width: 320px;
-    max-width: /* 1120px */90%;
-    width:325px ;
-  }
-  .navbar__title{
-    color:var(--theme-text);
-    font-weight: 800;
-    font-size: 15px;
-  }
-  .home__filter-search-container{
-    /* background-color:red; */
-    display:flex;
-    flex-direction: column;
-    justify-content:space-between;
-    align-items: flex-start;
-    width:265px;
-    margin:1em;
-    margin-bottom: 0;
-  }
-  .home__filter-search-container>*{
-    
-    margin:0;
-    margin-bottom:1em;
-
-  }
-
-  .inputsearch{
-    height:56px;
-    display:flex;
-    width: 265px;
-  }
-}
 
 
 
@@ -360,6 +326,8 @@ body {
   max-width: 1440px;
   /* background-color: darkgreen; */
   margin-left:16px;
+  margin-right:16px;
+
 }
 .country-detail-container>*{
   margin-top:38px;
@@ -377,21 +345,25 @@ body {
 }
 
 .country-detail__info-container{
-  display:flex;
+  display:flex;/* column in mobile or width  */
   align-items: center;
   justify-content: space-evenly;
   width: 100%;
   /* background-color:aqua; */
 }
-
+.country-detail__info-container>*{
+  margin-bottom:38px;
+}
 
 .info-container__flag-big{
   width: 560px;
-  height: 400px;
-  object-fit: cover;
+  /* height: 400px; */
+ 
 }
 
 .info-container__total-description{
+  width: 560px;
+
   /* background-color: coral; */
   
 }
@@ -444,4 +416,60 @@ body {
   display:flex;
   justify-content:center;
   align-items: center;
+}
+
+@media screen and (max-width:411px){
+  .main-container{    
+    min-width: 320px;
+    max-width: /* 1120px */90%;
+    width:325px ;
+  }
+  .navbar__title{
+    color:var(--theme-text);
+    font-weight: 800;
+    font-size: 15px;
+  }
+  .tittle_detail{   
+    font-size: 22px;
+  }
+  .home__filter-search-container{
+    /* background-color:red; */
+    display:flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items: flex-start;
+    width:265px;
+    margin:1em;
+    margin-bottom: 0;
+  }
+  .home__filter-search-container>*{
+    
+    margin:0;
+    margin-bottom:1em;
+
+  }
+
+  .inputsearch{
+    height:56px;
+    display:flex;
+    width: 265px;
+  }
+
+  .info-container__flag-big{
+    width: 320px;
+  
+  }
+
+  .info-container__total-description{
+    width: 320px;
+    
+  }
+}
+
+@media screen and (max-width:1170px){
+
+  .country-detail__info-container{
+    flex-direction: column;
+  }
+
 }

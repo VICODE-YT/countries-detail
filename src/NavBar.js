@@ -7,7 +7,7 @@ function NavBar(props){
 
     return (
         <div className="navbar">
-            <Tittle tittle={"Where in the world?"}></Tittle>
+            <Tittle tittle={"Where in the world?"} forNavbar={false}></Tittle>
             <BtnThemeSwith clicSwitchThemeF={props.clicSwitchTheme}></BtnThemeSwith>
         </div>
     );

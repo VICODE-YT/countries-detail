@@ -31,7 +31,8 @@ class App extends React.Component{
             <div className="app">             
                 <NavBar clicSwitchTheme={this.switchTheme} ></NavBar>
                 <div id="currentContentApp">
-                    {/* <Home ></Home>  it'll will be changed to country detail. */}
+                    {/*  it'll will be changed to country detail. */}
+                    {/* <Home ></Home>  */}
                     <CountryDetail></CountryDetail>
                 </div>
                 

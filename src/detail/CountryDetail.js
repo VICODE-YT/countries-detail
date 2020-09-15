@@ -24,7 +24,7 @@ class CountryDetail extends React.Component{
                     <img className="info-container__flag-big" src="https://restcountries.eu/data/bel.svg"></img>
                     <div className="info-container__total-description">
                         <div className="total-description__info">
-                            <Tittle tittle={"Belgium"}></Tittle>
+                            <Tittle tittle={"Belgium"} forNavbar={true}></Tittle>
                             <div className="info__detail-container">
                                 <div className="detail-container__geography-info">
                                     <CardInfoRow 
