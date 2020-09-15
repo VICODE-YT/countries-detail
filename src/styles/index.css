@@ -21,6 +21,8 @@
   --theme-text:hsl(0, 0%, 100%);
   --theme-input: hsl(0, 0%, 100%);/* input text? */
 
+  --selectable-card-color:#234455;
+
 /* 
   - Dark Blue (Dark Mode Elements): hsl(209, 23%, 22%)
   - Very Dark Blue (Dark Mode Background): hsl(207, 26%, 17%)
@@ -278,6 +280,9 @@ body {
   overflow:hidden;
   cursor:pointer;
 }
+.country-card:active{
+  background-color: var(--selectable-card-color);
+}
 .country-card__flag{
   height:160px;
   width:100%;
@@ -342,6 +347,7 @@ body {
   justify-content: center;
   align-items:center;
   color:var(--theme-text);
+  user-select: none;
 }
 
 .country-detail__info-container{
@@ -416,6 +422,11 @@ body {
   display:flex;
   justify-content:center;
   align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+.country-name-button:active{
+  background-color: var(--selectable-card-color);
 }
 
 @media screen and (max-width:411px){
