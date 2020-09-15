@@ -1,13 +1,13 @@
 import React from 'react';
 import "./styles/index.css"
 
-
+import Tittle from './shared/Tittle';
 
 function NavBar(props){
 
     return (
         <div className="navbar">
-            <div className = "navbar__title">Where in the world?</div>
+            <Tittle tittle={"Where in the world?"}></Tittle>
             <BtnThemeSwith clicSwitchThemeF={props.clicSwitchTheme}></BtnThemeSwith>
         </div>
     );

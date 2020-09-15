@@ -1,4 +1,11 @@
 import React from 'react';
+/* import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom"; */
+
 
 import NavBar from './NavBar';
 import Home from './home/Home';
@@ -24,7 +31,8 @@ class App extends React.Component{
             <div className="app">             
                 <NavBar clicSwitchTheme={this.switchTheme} ></NavBar>
                 <div id="currentContentApp">
-                    <Home ></Home>{/* it'll will be changed to country detail. */}
+                    {/* <Home ></Home>  it'll will be changed to country detail. */}
+                    <CountryDetail></CountryDetail>
                 </div>
                 
             </div>
@@ -33,7 +41,7 @@ class App extends React.Component{
     }
     
 }
- 
+
 
 
 export default App;

@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/index.css'
 
-import CardInfoRow from './CardInfoRow';
+import CardInfoRow from '../shared/CardInfoRow';
 
 class CountryCard extends React.Component{
 
