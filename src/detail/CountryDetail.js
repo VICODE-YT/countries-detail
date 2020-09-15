@@ -4,9 +4,9 @@ import '../styles/index.css'
 import CardInfoRow from '../shared/CardInfoRow';
 import CountryNameButton from './CountryNameButton'
 import Tittle from '../shared/Tittle';
+import ButtonBack from '../shared/ButtonBack';
 
 
-import { ReactComponent as BackArrow } from '../img/arrow-back-outline.svg';
 
 
 
@@ -19,9 +19,7 @@ class CountryDetail extends React.Component{
     render(){
         return (
             <div className="country-detail-container">
-                <div className="country-detail__button-back country-card element-floating">
-                    <BackArrow className="iconSearch"></BackArrow> Back
-                </div>
+                <ButtonBack/>
                 <div className="country-detail__info-container">
                     <img className="info-container__flag-big" src="https://restcountries.eu/data/bel.svg"></img>
                     <div className="info-container__total-description">
