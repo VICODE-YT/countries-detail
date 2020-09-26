@@ -1,5 +1,6 @@
 import React from 'react';
-import "../styles/index.css"
+import {Link} from 'react-router-dom';
+import "../styles/index.css";
 
 import InputSearch from '../home/InputSearch';
 import RegionChoiceBox from './RegionChoiceBox';
@@ -15,7 +16,20 @@ class Home extends React.Component{
             currentDataCountriesToShow:null,
         }
         this.dataPreview = null;
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
+
+    handleChange(e) {
+        console.log( "Handle change: " + e.target.value);
+    }
+
+    handleSubmit(e) {
+        alert("Handle submit: " + e.target.value);
+        e.preventDefault();
+
+    }
+
     async componentDidMount() {
        
         let countriesPreview = JSON.parse( localStorage.getItem('countriesPreview') );
@@ -68,19 +82,24 @@ class Home extends React.Component{
             return (
                 <div className="home">
                     <div className="home__filter-search-container">
-                        <InputSearch ></InputSearch>
+                        <InputSearch handleChange={this.handleChange} handleSubmit = {this.handleSubmit} ></InputSearch>
                         <RegionChoiceBox></RegionChoiceBox>
                     </div>
                     <div className="home__countries-cards">
                         {dataForCards.map(function(element,index){
-                            return <CountryCard 
-                                key={element.name}
-                                name={element.name} population={element.population} 
-                                region={element.region} capital={element.capital} 
-                                flagURL={element.flag}
-                                >
-
-                            </CountryCard>
+                            return(
+                                <Link key={element.name /* FOr React */} to={`/Country-Detail/${element.name}`} style={{ textDecoration: 'none' }}>
+                                    <CountryCard 
+                                        
+                                        name={element.name} population={element.population} 
+                                        region={element.region} capital={element.capital} 
+                                        flagURL={element.flag}
+                                        >
+                                    </CountryCard>
+                                </Link>
+                                
+                            );
+                             
                         })}
                     
                     </div>

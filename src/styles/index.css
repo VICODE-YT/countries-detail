@@ -128,9 +128,12 @@ body {
   stroke: var(--theme-text);
 
 }
+.inputsearch-form{
+  width: 75%;
+}
 .inputsearch__input{
   color:var(--theme-text);
-  width: 75%;
+  width:100%;
 }
 .inputsearch__input,
 .inputsearch__input:active,

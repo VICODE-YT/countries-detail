@@ -1,10 +1,10 @@
 import React from 'react';
-/* import {
+import {
     BrowserRouter as Router,
     Switch,
     Route,
     Link
-} from "react-router-dom"; */
+} from "react-router-dom";
 
 
 import NavBar from './NavBar';
@@ -27,17 +27,19 @@ class App extends React.Component{
     render(){
         callbackThemeQ = this.props.callbackTheme;
         return(
-        
-            <div className="app">             
-                <NavBar clicSwitchTheme={this.switchTheme} ></NavBar>
-                <div id="currentContentApp">
-                    {/*  it'll will be changed to country detail. */}
-                    {/* <Home ></Home>  */}
-                    <CountryDetail></CountryDetail>
+            <Router>
+                <div className="app">             
+                    <NavBar clicSwitchTheme={this.switchTheme} ></NavBar>
+                    <Switch>
+                        <Route path="/" exact component={Home} />{/* Have the slash, render out the component too, so use exact tag */}
+                        <Route path="/Country-Detail/:name" component={CountryDetail}/>
+                    </Switch>
+                        {/*  it'll will be changed to country detail. */}
+                        {/* <Home ></Home>  */}
+                        {/* <CountryDetail></CountryDetail> */}
+                    
                 </div>
-                
-            </div>
-
+            </Router>
         );
     }
     
