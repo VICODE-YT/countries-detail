@@ -7,7 +7,7 @@ function InputSearch(props) {
         <div className="inputsearch element-floating">
             <SearchIcon className="iconSearch"></SearchIcon>
             <form className="inputsearch-form" onSubmit={props.handleSubmit} style={{display:'inline'}} >
-                <input className="inputsearch__input" type="text" placeholder={"Search for a country..."} onChange={props.handleChange} />
+                <input name="country_search" className="inputsearch__input" type="text" placeholder={"Search for a country..."} onChange={props.handleChange} />            
             </form>
         </div>
     );

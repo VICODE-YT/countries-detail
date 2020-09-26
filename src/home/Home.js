@@ -25,8 +25,25 @@ class Home extends React.Component{
     }
 
     handleSubmit(e) {
-        alert("Handle submit: " + e.target.value);
         e.preventDefault();
+
+        /* alert("Handle submit: " + e.target.country_search.value); */
+        let userSubmitted = e.target.country_search.value;
+        let dataPreviewReady = [];
+
+        let countriesPreview = JSON.parse(localStorage.getItem('countriesPreview'));
+        for(let country of countriesPreview){
+            let userSubiteLower = userSubmitted.toLowerCase();
+            let countryNameLower = country.name.toLowerCase();
+
+            if (countryNameLower.startsWith(userSubiteLower)){
+                dataPreviewReady[dataPreviewReady.length] = country;
+            }
+        }
+
+        this.setState({
+            currentDataCountriesToShow: dataPreviewReady,
+        });
 
     }
 
@@ -65,7 +82,7 @@ class Home extends React.Component{
             return(
                 <div className="home">
                     <div className="home__filter-search-container">
-                        <InputSearch ></InputSearch>
+                        <InputSearch handleChange={this.handleChange} handleSubmit={this.handleSubmit} ></InputSearch>
                         <RegionChoiceBox></RegionChoiceBox>
                     </div>
                     <div className="home__countries-cards">
@@ -89,9 +106,8 @@ class Home extends React.Component{
                         {dataForCards.map(function(element,index){
                             return(
                                 <Link key={element.name /* FOr React */} to={`/Country-Detail/${element.name}`} style={{ textDecoration: 'none' }}>
-                                    <CountryCard 
-                                        
-                                        name={element.name} population={element.population} 
+                                    <CountryCard                     
+                                        name={element.name} population={element.population}
                                         region={element.region} capital={element.capital} 
                                         flagURL={element.flag}
                                         >
