@@ -34,6 +34,7 @@
   font-family: 'Nunito Sans', sans-serif;
   font-size:14px;
   font-weight: 300;
+  
 }
 
 body {
@@ -334,13 +335,13 @@ body {
 .country-detail-container{
   width:100%;
   max-width: 1440px;
-  /* background-color: darkgreen; */
+  background-color: var(--theme-background-color);
 
 
 }
 .country-detail-container>*{
-  margin-top:38px;
-  margin-bottom:38px;
+   padding-top:38px;
+  /* margin-bottom:38px;  */
 }
 
 
