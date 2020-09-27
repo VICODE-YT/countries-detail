@@ -312,7 +312,9 @@ body {
   font-size: 18px ;
   color:var(--theme-text);
 }
-
+.card-info-row{
+  margin-bottom:3px;
+}
 .card-info__tittle{
   color:var(--theme-text);
   font-size: 16px;
@@ -477,6 +479,12 @@ body {
   .info-container__total-description{
     width: 320px;
     
+  }
+  .info__detail-container{
+    /* background-color:forestgreen; */
+    display:flex;/*TODO Flex column when mobile */
+    flex-direction: column;
+    justify-content: space-between;
   }
 }
 
